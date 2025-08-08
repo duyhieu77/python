@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker, Session
 
 app = FastAPI()
 
-DATABASE_URL = "mysql+pymysql://root:password@localhost/employees_db"
+DATABASE_URL = "mysql+pymysql://root:password@localhost/employee_db"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
@@ -85,3 +85,4 @@ def delete_employee(employee_id: int, db: Session = next(get_db())):
     db.commit()
 
     return {"detail": "Employee deleted successfully"}
+
